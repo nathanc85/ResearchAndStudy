@@ -21,7 +21,6 @@ namespace ResearchAndStudy
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(goodbye);
             Console.ResetColor();
-            Console.ReadLine();
         }
 
         public void DisplayMenu()
@@ -40,26 +39,16 @@ namespace ResearchAndStudy
 
         public void ProcessOption1()
         {
-            bool firstNumberValid;
-            bool secondNumberValid;
-
+            Console.WriteLine();
             // Read and validate the first number.
-            Console.WriteLine("First number: ");
-            string first = Console.ReadLine();
-            firstNumberValid = Validation.ValidateNumber(first);
-
-            if (firstNumberValid)
+            Console.Write("First number: ");
+            if (Validation.ValidateNumber(Console.ReadLine(), out double firstNumber))
             {
                 // Read and validate the second number.
-                Console.WriteLine("Second number: ");
-                string second = Console.ReadLine();
-                secondNumberValid = Validation.ValidateNumber(second);
-
-                if (secondNumberValid)
+                Console.Write("Second number: ");
+                if (Validation.ValidateNumber(Console.ReadLine(), out double secondNumber))
                 {
-                    double.TryParse(first, out double firstNumber);
-                    double.TryParse(second, out double secondNumber);
-                    Calculation.CalculateSum(first, second);
+                    Calculation.CalculateSum(firstNumber, secondNumber);
                 }
             }
             

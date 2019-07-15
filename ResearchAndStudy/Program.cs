@@ -27,7 +27,6 @@ namespace ResearchAndStudy
         private static void ProcessTheRequest(Menu menu)
         {
             // The truth value of the chosen option.
-            bool valid;
             char option;
             do
             {
@@ -37,18 +36,20 @@ namespace ResearchAndStudy
                 // Read the option.
                 option = Console.ReadKey().KeyChar;
                 // Validate the entry.
-                valid = Validation.ValidateDigit(option, 1, 3);
+                bool valid = Validation.ValidateDigit(option, 1, 3);
                 if (valid)
                 {
                     switch (option)
                     {
-                        case: '1':
-
-                        default: continue
+                        case '1':
+                            menu.ProcessOption1();
                             break;
+
+                        default:
+                            return;
                     }
                 }
-            } while (!valid || option != '3');
+            } while (option != '3');
         }
     }
 }
