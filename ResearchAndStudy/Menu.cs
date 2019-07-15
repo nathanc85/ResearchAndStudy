@@ -8,22 +8,25 @@ namespace ResearchAndStudy
 {
     class Menu
     {
-        public string welcome = "Welcome to the Research and Study Project!";
+        public void WelcomeMessage(string message = "Welcome to the Research and Study Project!")
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public void GoodbyeMessage(string goodbye = "Good bye!")
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(goodbye);
+            Console.ResetColor();
+            Console.ReadLine();
+        }
 
         public void DisplayMenu()
         {
-            WelcomeMessage(welcome);
-
-            DisplayOptions();
-        }
-
-        private void WelcomeMessage(string message)
-        {
-            Console.WriteLine(message);
-        }
-
-        private void DisplayOptions()
-        {
+            Console.WriteLine();
             Console.WriteLine("Choose an option");
             Console.WriteLine("1. Calculate the sum of 2 numbers.");
             Console.WriteLine("2. Calculate the time to a future date.");
@@ -35,24 +38,31 @@ namespace ResearchAndStudy
             return Console.ReadKey().KeyChar;
         }
 
-        public bool ValidateMenuOption(char option)
+        public void ProcessOption1()
         {
-            // Confirm it's a valid option.
-            if (!char.IsDigit(option))
+            bool firstNumberValid;
+            bool secondNumberValid;
+
+            // Read and validate the first number.
+            Console.WriteLine("First number: ");
+            string first = Console.ReadLine();
+            firstNumberValid = Validation.ValidateNumber(first);
+
+            if (firstNumberValid)
             {
-                Error.Message("The option has to be a digit.");
-                return false;
-            }
-            else
-            {
-                int chosenDigit = int.Parse(option.ToString());
-                if (chosenDigit < 1 || chosenDigit > 3)
+                // Read and validate the second number.
+                Console.WriteLine("Second number: ");
+                string second = Console.ReadLine();
+                secondNumberValid = Validation.ValidateNumber(second);
+
+                if (secondNumberValid)
                 {
-                    Error.Message("The option has to be a digit between 1 and 3.");
-                    return false;
+                    double.TryParse(first, out double firstNumber);
+                    double.TryParse(second, out double secondNumber);
+                    Calculation.CalculateSum(first, second);
                 }
             }
-            return true;
+            
         }
     }
 }

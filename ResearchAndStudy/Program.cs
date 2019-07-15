@@ -10,56 +10,45 @@ namespace ResearchAndStudy
     {
         static void Main(string[] args)
         {
-            WelcomeMessage("Welcome to the Research and Study Project!");
+            //WelcomeMessage("Welcome to the Research and Study Project!");
 
-            ProcessTheRequest();
+            //ProcessTheRequest();
+            //Calculation c = new Calculation();
+            //c.CalculateSum(2.3, 3.5);
+            //c.CalculateTimeDiff(new DateTime(2019, 7, 29, 0, 0, 0));
+            Menu newMenu = new Menu();
+            newMenu.WelcomeMessage();
+
+            ProcessTheRequest(newMenu);
+
+            newMenu.GoodbyeMessage();
         }
 
-        /// <summary>
-        /// Prints a welcome message.
-        /// </summary>
-        /// <param name="message">The welcome message to be printed.</param>
-        private static void WelcomeMessage(string message)
-        {
-            Console.WriteLine(message);
-        }
-
-        /// <summary>
-        /// Displays the menu.
-        /// </summary>
-        private static void DisplayTheMenu()
-        {
-            Console.WriteLine("Choose an option");
-            Console.WriteLine("1. Calculate the sum of 2 numbers.");
-            Console.WriteLine("2. Calculate the time to a future date.");
-            Console.WriteLine("3. Exit!");
-        }
-
-        private static void ProcessTheRequest()
+        private static void ProcessTheRequest(Menu menu)
         {
             // The truth value of the chosen option.
-            int valid;
+            bool valid;
+            char option;
             do
             {
                 // Display the menu.
-                DisplayTheMenu();
-                // Read the option.
-                var option = Console.ReadKey().KeyChar;
-                // Validate the entry.
-                valid = ValidateOption(option);
+                menu.DisplayMenu();
                 
-            } while (valid);
-        }
+                // Read the option.
+                option = Console.ReadKey().KeyChar;
+                // Validate the entry.
+                valid = Validation.ValidateDigit(option, 1, 3);
+                if (valid)
+                {
+                    switch (option)
+                    {
+                        case: '1':
 
-        private static bool ValidateOption(char option)
-        {
-            var valid = 0;
-            if (char.IsDigit(option))
-            {
-                va = int.Parse(option.ToString());
-            }
-
-            return false;
+                        default: continue
+                            break;
+                    }
+                }
+            } while (!valid || option != '3');
         }
     }
 }

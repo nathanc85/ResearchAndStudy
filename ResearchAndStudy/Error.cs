@@ -10,7 +10,10 @@ namespace ResearchAndStudy
     {
         public static void Message(string message)
         {
+            Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }
