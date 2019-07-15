@@ -9,6 +9,7 @@ namespace ResearchAndStudy
     class Menu
     {
         public string welcome = "Welcome to the Research and Study Project!";
+
         public void DisplayMenu()
         {
             WelcomeMessage(welcome);
@@ -36,12 +37,22 @@ namespace ResearchAndStudy
 
         public bool ValidateMenuOption(char option)
         {
-            // TO DO
-            if (char.IsDigit(option))
+            // Confirm it's a valid option.
+            if (!char.IsDigit(option))
             {
-                var chosen = int.Parse(option.ToString());
+                Error.Message("The option has to be a digit.");
+                return false;
             }
-            return false;
+            else
+            {
+                int chosenDigit = int.Parse(option.ToString());
+                if (chosenDigit < 1 || chosenDigit > 3)
+                {
+                    Error.Message("The option has to be a digit between 1 and 3.");
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
