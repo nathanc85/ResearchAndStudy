@@ -42,6 +42,9 @@ namespace ResearchAndStudy
             Console.WriteLine();
             // Read and validate the first number.
             Console.Write("First number: ");
+            // I could have went with getting the result of the Console.ReadLine()
+            // in another variable and pass it in as a parameter but i went for
+            // shorter code over readibility this time. Discuss with mentor.
             if (Validation.ValidateNumber(Console.ReadLine(), out double firstNumber))
             {
                 // Read and validate the second number.

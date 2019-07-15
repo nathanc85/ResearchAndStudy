@@ -29,7 +29,10 @@ namespace ResearchAndStudy
 
         public static bool ValidateNumber(string input, out double result)
         {
-            // Trying to parse the input
+            // If i didn't use "out", then i would have had to do the parsing
+            // again outside this function. Another option would have been
+            // returning an object with 2 fields or a Tuple. Discuss with mentor.
+            // Trying to parse the input.
             bool succesfulParsing = double.TryParse(input, out double number);
             result = number;
             if (!succesfulParsing)

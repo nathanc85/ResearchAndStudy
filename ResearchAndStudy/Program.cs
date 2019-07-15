@@ -46,7 +46,11 @@ namespace ResearchAndStudy
                             break;
 
                         default:
-                            return;
+                            // I could have went with return; and it would have worked
+                            // because it was exiting the loop, but i went with continue;
+                            // so that the end of the loop condition would be hit.
+                            // Either one works.
+                            continue;
                     }
                 }
             } while (option != '3');
