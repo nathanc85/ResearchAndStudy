@@ -44,12 +44,14 @@ namespace ResearchAndStudy
                         case '1':
                             menu.ProcessOption1();
                             break;
-
+                        case '2':
+                            menu.ProcessOption2();
+                            break;
                         default:
                             // I could have went with return; and it would have worked
                             // because it was exiting the loop, but i went with continue;
                             // so that the end of the loop condition would be hit.
-                            // Either one works.
+                            // Either one works. Discuss with mentor.
                             continue;
                     }
                 }

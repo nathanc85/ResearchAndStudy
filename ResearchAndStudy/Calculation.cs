@@ -13,7 +13,7 @@ namespace ResearchAndStudy
             Console.WriteLine($"The sum between {first} and {second} is {first + second}");
         }
 
-        public static void CalculateTimeDiff(DateTime futureDate)
+        public static void CalculateTimeDifference(DateTime futureDate)
         {
             TimeSpan timeDifference = futureDate - DateTime.Now;
             Console.WriteLine($"There are {timeDifference.Days} days, {timeDifference.Hours} hours and {timeDifference.Minutes} minutes until {futureDate.ToString()}");

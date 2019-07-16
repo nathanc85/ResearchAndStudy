@@ -33,9 +33,9 @@ namespace ResearchAndStudy
             // again outside this function. Another option would have been
             // returning an object with 2 fields or a Tuple. Discuss with mentor.
             // Trying to parse the input.
-            bool succesfulParsing = double.TryParse(input, out double number);
+            bool successfulParsing = double.TryParse(input, out double number);
             result = number;
-            if (!succesfulParsing)
+            if (!successfulParsing)
             {
                 Error.Message("This is not a valid number.");
                 return false;
@@ -43,12 +43,22 @@ namespace ResearchAndStudy
             return true;
         }
 
-        public static bool ValidateDate(string date)
+        public static bool ValidateFutureDate(string input, out DateTime result)
         {
-            if (!DateTime.TryParse(date, out DateTime result))
+            bool successfulParsing = DateTime.TryParse(input, out DateTime date);
+            result = date;
+            if (!successfulParsing)
             {
                 Error.Message("This is not a valid date.");
                 return false;
+            }
+            else
+            {
+                if (DateTime.Now > date)
+                {
+                    Error.Message("This is not a future date.");
+                    return false;
+                }
             }
             return true;
         }

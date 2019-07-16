@@ -54,7 +54,21 @@ namespace ResearchAndStudy
                     Calculation.CalculateSum(firstNumber, secondNumber);
                 }
             }
-            
+        }
+
+        public void ProcessOption2()
+        {
+            Console.WriteLine();
+            // Read and validate the future date.
+            Console.Write("Future date (MM/dd/yyy): ");
+            // I could have went with getting the result of the Console.ReadLine()
+            // in another variable and pass it in as a parameter but i went for
+            // shorter code over readibility this time. Discuss with mentor.
+            if (Validation.ValidateFutureDate(Console.ReadLine(), out DateTime futureDate))
+            {
+                Calculation.CalculateTimeDifference(futureDate);
+            }
+
         }
     }
 }
