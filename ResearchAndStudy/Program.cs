@@ -10,12 +10,6 @@ namespace ResearchAndStudy
     {
         static void Main(string[] args)
         {
-            //WelcomeMessage("Welcome to the Research and Study Project!");
-
-            //ProcessTheRequest();
-            //Calculation c = new Calculation();
-            //c.CalculateSum(2.3, 3.5);
-            //c.CalculateTimeDiff(new DateTime(2019, 7, 29, 0, 0, 0));
             Menu newMenu = new Menu();
             newMenu.WelcomeMessage();
 
